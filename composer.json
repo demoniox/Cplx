@@ -1,0 +1,43 @@
+{
+    "minimum-stability":"dev",
+    "repositories": [
+        {
+            "type": "vcs",
+            "url": "https://github.com/demoniox/Cplx.git"
+        },
+        {
+            "type": "package",
+            "package": {
+                "name": "magento/ce",
+                "version": "1.9.1.0",
+                "type": "magento-source",
+                "dist": {
+                    "url": "http://www.magentocommerce.com/downloads/assets/1.9.1.0/magento-1.9.1.0.tar.gz",
+                    "type": "tar"
+                }
+            }
+        }
+    ],
+
+    "extra": {
+        "installer-paths": {
+            "magento": ["type:magento-source"],
+            "magento/.modman/{$name}/": ["type:magento-module"]
+        }
+    },
+
+    "require": {
+        "magento/ce": "1.9.1.0",
+        "aoepeople/composer-installers": "dev-master#9e8c507177",
+        "demoniox/Cplx": "dev-master"
+    },
+
+    "scripts": {
+        "post-install-cmd": [
+            "cd magento/ && modman deploy-all"
+        ],
+        "post-update-cmd": [
+            "cd magento/ && modman deploy-all"
+        ]
+    }
+}

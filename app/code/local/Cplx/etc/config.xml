@@ -1,0 +1,43 @@
+<?xml version="1.0"?>
+<config>
+    <modules>
+        <mstucky_Cplx>
+            <version>0.1.0</version>    <!-- Version of module -->
+        </mstucky_Cplx>
+    </modules>
+    <frontend>
+        <routers>
+            <Cplx>
+                <use>standard</use>
+                <args>
+                    <module>mstucky_Cplx</module>
+                    <frontName>Cplx</frontName>
+                </args>
+            </Cplx>
+        </routers>
+    </frontend>
+	<global>
+		<models>
+			<cplx>
+				<class>mstucky_Cplx_Model</class>
+				<resourceModel>cplx_resource</resourceModel>
+			</cplx>
+			<cplx_resource>
+				<class>mstucky_Cplx_Model_Resource</class>
+				<entities>
+					<eavblogpost>
+						<table>eavblog_posts</table>
+					</eavblogpost>
+				</entities>
+			</cplx_resource>		
+		</models>
+		<resources>
+			<cplx_setup>
+				<setup>
+					<module>mstucky_Cplx</module>
+					<class>mstucky_Cplx_Model_Resource_Setup</class>
+				</setup>
+			</cplx_setup>
+		</resources>	
+	</global>
+</config>
